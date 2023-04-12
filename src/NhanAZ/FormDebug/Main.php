@@ -19,6 +19,7 @@ class Main extends PluginBase implements Listener {
 
 	public function onDataPacketReceive(DataPacketReceiveEvent $event) {
 		$packet = $event->getPacket();
+
 		if ($packet instanceof ModalFormResponsePacket) {
 			$player = $event->getOrigin()->getPlayer()->getName();
 			var_dump($player, $packet);
@@ -27,6 +28,7 @@ class Main extends PluginBase implements Listener {
 
 	public function onDataPacketSend(DataPacketSendEvent $event) {
 		$packets = $event->getPackets();
+
 		foreach ($packets as $packet) {
 			if ($packet instanceof ModalFormRequestPacket) {
 				$targetArr = [];
